@@ -2,7 +2,7 @@
 Tired of setting up build environment to hack your shiny ARM based IoT devices?
 
 With this docker image, you can build custom Linux kernel (arm64 arch) anywhere
-without messing up with your environment.  Gcc version?  Multilib conflict?
+without messing up with your environment.  gcc version?  g++-multilib conflict?
 You know what I'm talking about.
 
 No performance penalty when running under Linux.  You get almost 100% of your CPU power when building source code.
