@@ -1,0 +1,17 @@
+#!/bin/bash
+
+IMAGE_NAME=jiulongw/linux-arm
+CONTAINER_NAME=linux-arm
+SRC_HOST=$(pwd)
+SRC_BASE_NAME=$(basename -- "$SRC_HOST")
+SRC_DEST=/home/linux/$SRC_BASE_NAME
+
+if [ ! "$(docker ps -q -f name=$CONTAINER_NAME)" ]; then
+  if [ "$(docker ps -aq -f status=exited -f name=$CONTAINER_NAME)" ]; then
+    docker start -ia $CONTAINER_NAME
+  else
+    docker run -it --name $CONTAINER_NAME -v $SRC_HOST:$SRC_DEST $IMAGE_NAME /bin/bash
+  fi
+else
+  docker exec -it $CONTAINER_NAME /bin/bash
+fi
