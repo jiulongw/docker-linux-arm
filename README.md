@@ -10,7 +10,7 @@ No performance penalty when running under Linux.  You get almost 100% of your CP
 Tested with Firefly RK3399 BSP kernel.
 
 ## Usage
-You can symbolic link it to your `$PATH`.  E.g.
+You can symbolic link `shell` to your `$PATH`.  E.g.
 ```
 ln -s ~/github/docker-linux-arm/shell /usr/local/bin/linux-arm-shell
 ```
@@ -21,6 +21,7 @@ Now simply run it from directory where kernel source is located.
 (~/github/ff-kernel)$ linux-arm-shell
 linux@6c348d9a2dc8:/$ cd ~/ff-kernel
 linux@6c348d9a2dc8:~/ff-kernel$ make firefly_linux_defconfig
+...
 linux@6c348d9a2dc8:~/ff-kernel$ make rk3399-firefly-linux.img -j4
 ...
 Pack to resource.img successed!
@@ -28,8 +29,8 @@ Pack to resource.img successed!
 ```
 
 ## Note:
-1. The shell script will attach to existing container if exists. If you want to change source code directory, delete
-existing container first.
+1. The shell script will attach to existing container if it exists.
+If you want to change source code directory, delete existing container first.
 ```
 docker rm linux-arm
 ```
